@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dynamic.datasource.dao.StudentDao">
+    <resultMap type="com.dynamic.datasource.model.Student" id="StudentMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="role_id" column="roleId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryById" parameterType="java.lang.Integer" resultMap="StudentMap">
+        select
+        id, name
+        from student
+        where id = #{id}
+    </select>
+</mapper>
